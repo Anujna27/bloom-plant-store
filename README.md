@@ -1,16 +1,34 @@
-# React + Vite
+# Bloom — Plant Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive plant store landing page built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Mobile-first responsive layout
+- CSS Grid and Flexbox
+- Responsive breakpoints at 320px, 768px, 1024px and 1440px
+- CSS custom properties for design tokens
+- Light and dark themes
+- Glassmorphism effects
+- Soft shadows and hover transitions
+- No horizontal scrolling on mobile
+- Responsive plant collection cards
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- CSS
+- JavaScript
 
-## Expanding the Oxlint configuration
+## Responsive Design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The layout adapts across mobile, tablet and desktop screen sizes using CSS media queries and a mobile-first approach.
+
+## Theme
+
+Bloom includes both light and dark themes using CSS custom properties. The theme changes across the entire interface, including the background, cards, text, buttons and navigation.
+
+## Project
+
+Built as part of a responsive design and CSS architecture internship task.
