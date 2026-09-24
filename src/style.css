@@ -1,0 +1,772 @@
+:root {
+  /* ---------- DESIGN TOKENS ---------- */
+
+  /* Colors */
+  --bg: #f6f4ed;
+  --surface: #ffffff;
+  --surface-soft: #e9eee4;
+
+  --text: #26352a;
+  --text-soft: #667267;
+
+  --primary: #52745a;
+  --primary-dark: #36523d;
+
+  --border: #dce2d8;
+
+  /* Typography */
+  --font-body: Arial, Helvetica, sans-serif;
+  --text-small: 0.85rem;
+  --text-body: 1rem;
+  --text-large: 1.2rem;
+  --heading-small: 2rem;
+  --heading-large: 5.5rem;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+
+  /* Borders */
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 24px;
+  --radius-round: 999px;
+
+  /* Effects */
+  --shadow-soft: 0 8px 25px rgba(38, 53, 42, 0.08);
+  --shadow-hover: 0 14px 35px rgba(38, 53, 42, 0.13);
+
+  --transition: 180ms ease;
+  --blur: 14px;
+}
+
+
+/* ---------- GLOBAL ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+
+  background: var(--bg);
+  color: var(--text);
+
+  overflow-x: hidden;
+
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+
+/* ---------- ACCESSIBILITY ---------- */
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(246, 244, 237, 0.82);
+
+  /* Glassmorphism */
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+
+  border-bottom: 1px solid rgba(220, 226, 216, 0.8);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.navbar {
+  width: min(1120px, calc(100% - 2rem));
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-2);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: none;
+
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-links a {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+
+  transition: color var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+
+/* ---------- NAV ACTIONS ---------- */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface);
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-button,
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-round);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.nav-button {
+  padding: 0.55rem 1rem;
+
+  background: var(--text);
+  color: var(--bg);
+
+  font-size: var(--text-small);
+}
+
+.nav-button:hover,
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  width: min(1120px, calc(100% - 2rem));
+  min-height: 620px;
+
+  margin: 0 auto;
+  padding: var(--space-6) 0;
+
+  display: grid;
+  align-items: center;
+
+  gap: var(--space-5);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-1);
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(2.8rem, 10vw, var(--heading-large));
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 520px;
+
+  margin: var(--space-3) 0 var(--space-4);
+
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+.primary-button {
+  padding: 0.8rem 1.25rem;
+
+  background: var(--primary);
+  color: white;
+
+  font-weight: 600;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.primary-button:hover {
+  background: var(--primary-dark);
+}
+
+
+/* ---------- HERO CARD ---------- */
+
+.hero-card {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--surface-soft);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-card span {
+  font-size: 7rem;
+  line-height: 1;
+}
+
+.hero-card p {
+  margin: var(--space-2) 0 0;
+
+  color: var(--text-soft);
+  font-size: var(--text-small);
+}
+
+.hero-card strong {
+  font-size: var(--text-large);
+}
+
+
+/* ---------- PLANT COLLECTION ---------- */
+
+.plants-section {
+  width: min(1120px, calc(100% - 2rem));
+
+  margin: 0 auto;
+  padding: var(--space-6) 0;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: var(--space-5);
+}
+
+.section-heading h2,
+.about-section h2,
+.contact-section h2 {
+  margin: 0;
+
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.section-heading > p:last-child {
+  margin-top: var(--space-2);
+
+  color: var(--text-soft);
+}
+
+
+/* ---------- RESPONSIVE MULTI-COLUMN GRID ---------- */
+
+.plant-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: var(--space-3);
+}
+
+.plant-card {
+  padding: var(--space-2);
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.plant-image {
+  min-height: 210px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--surface-soft);
+
+  border-radius: var(--radius-small);
+
+  font-size: 5rem;
+}
+
+.plant-card h3 {
+  margin: var(--space-2) 0 0;
+
+  font-size: var(--text-large);
+}
+
+.plant-card p {
+  margin: 0.25rem 0 var(--space-2);
+
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.plant-card strong {
+  font-size: var(--text-body);
+}
+
+
+/* ---------- ABOUT ---------- */
+
+.about-section {
+  width: min(1120px, calc(100% - 2rem));
+
+  margin: 0 auto;
+  padding: var(--space-6) 0;
+
+  display: grid;
+  gap: var(--space-4);
+
+  border-top: 1px solid var(--border);
+}
+
+.about-section > p {
+  max-width: 600px;
+  margin: 0;
+
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+
+/* ---------- CONTACT ---------- */
+
+.contact-section {
+  width: min(1120px, calc(100% - 2rem));
+
+  margin: var(--space-5) auto var(--space-6);
+  padding: var(--space-5);
+
+  text-align: center;
+
+  background: var(--surface-soft);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-section p:not(.eyebrow) {
+  max-width: 500px;
+
+  margin: var(--space-2) auto var(--space-3);
+
+  color: var(--text-soft);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  padding: var(--space-3);
+
+  border-top: 1px solid var(--border);
+
+  text-align: center;
+
+  color: var(--text-soft);
+  font-size: var(--text-small);
+}
+
+
+/* ==================================================
+   320px — SMALL MOBILE
+   ================================================== */
+
+@media (max-width: 320px) {
+  .navbar,
+  .hero,
+  .plants-section,
+  .about-section,
+  .contact-section {
+    width: calc(100% - 1rem);
+  }
+
+  .navbar {
+    min-height: 64px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-button {
+    padding: 0.45rem 0.7rem;
+  }
+
+  .hero {
+    padding: var(--space-5) 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-section {
+    padding: var(--space-3);
+  }
+}
+
+
+/* ==================================================
+   768px — TABLET
+   ================================================== */
+
+@media (min-width: 768px) {
+  .navbar,
+  .hero,
+  .plants-section,
+  .about-section,
+  .contact-section {
+    width: min(1120px, calc(100% - 3rem));
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  /* 2-column responsive grid */
+  .plant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+
+/* ==================================================
+   1024px — DESKTOP
+   ================================================== */
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 700px;
+  }
+
+  /* 4-column responsive grid */
+  .plant-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .plant-image {
+    min-height: 230px;
+  }
+}
+
+
+/* ==================================================
+   1440px — LARGE DESKTOP
+   ================================================== */
+
+@media (min-width: 1440px) {
+  .navbar,
+  .hero,
+  .plants-section,
+  .about-section,
+  .contact-section {
+    max-width: 1200px;
+  }
+}
+
+
+/* ==================================================
+   DARK THEME
+   ================================================== */
+
+/* ==================================================
+   DARK THEME
+   ================================================== */
+
+.dark-theme {
+  --bg: #101810;
+  --surface: #182219;
+  --surface-soft: #213022;
+
+  --text: #e8f0e8;
+  --text-soft: #aab8aa;
+
+  --primary: #7fa987;
+  --primary-dark: #608968;
+
+  --border: #344436;
+
+  --shadow-soft: 0 8px 25px rgba(0, 0, 0, 0.28);
+  --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Whole page */
+
+.dark-theme {
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+/* Header */
+
+.dark-theme .site-header {
+  background: rgba(16, 24, 16, 0.88);
+  border-color: var(--border);
+}
+
+
+/* Logo */
+
+.dark-theme .logo span {
+  color: var(--primary);
+}
+
+
+/* Navigation */
+
+.dark-theme .nav-links a {
+  color: var(--text-soft);
+}
+
+.dark-theme .nav-links a:hover {
+  color: var(--text);
+}
+
+
+/* Theme button */
+
+.dark-theme .theme-toggle {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+
+/* Shop button */
+
+.dark-theme .nav-button {
+  background: var(--primary);
+  color: #102015;
+}
+
+
+/* Main buttons */
+
+.dark-theme .primary-button {
+  background: var(--primary);
+  color: #102015;
+}
+
+.dark-theme .primary-button:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+
+/* Hero */
+
+.dark-theme .hero-card {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+
+/* Plant cards */
+
+.dark-theme .plant-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+
+/* Plant image areas */
+
+.dark-theme .plant-image {
+  background: var(--surface-soft);
+}
+
+
+/* About section */
+
+.dark-theme .about-section {
+  border-color: var(--border);
+}
+
+
+/* Contact section */
+
+.dark-theme .contact-section {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+
+/* Footer */
+
+.dark-theme .site-footer {
+  border-color: var(--border);
+}
+
+
+/* Small labels */
+
+.dark-theme .eyebrow {
+  color: var(--primary);
+}
+.dark-theme .site-header {
+  background: rgba(24, 32, 25, 0.82);
+
+  border-color: rgba(53, 66, 56, 0.8);
+}
+
+.dark-theme .nav-button {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.dark-theme .theme-toggle {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+
+/* ---------- THEME TRANSITIONS ---------- */
+
+.app,
+.site-header,
+.hero-card,
+.plant-card,
+.plant-image,
+.contact-section,
+.theme-toggle {
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
