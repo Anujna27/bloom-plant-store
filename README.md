@@ -32,3 +32,20 @@ Bloom includes both light and dark themes using CSS custom properties. The theme
 ## Project
 
 Built as part of a responsive design and CSS architecture internship task.
+
+## Responsive Screenshots
+
+### 320px
+![320px]
+
+### 768px
+![768px]
+
+### 1024px
+![1024px]
+
+### 1440px
+![1440px]
+
+### Dark Mode
+![Dark Mode]
